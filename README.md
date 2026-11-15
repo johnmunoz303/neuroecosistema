@@ -32,6 +32,7 @@ Para cambiar la semilla de la demo:
 - [resultados/episodios.csv](resultados/episodios.csv) contiene 210 episodios de evaluación, uno por combinación de escenario, política y semilla.
 - [resultados/resumen.csv](resultados/resumen.csv) contiene medias, desviaciones estándar muestrales y número de observaciones.
 - [resultados/graficas](resultados/graficas) contiene gráficas PNG y SVG de supervivencia, consumo y capturas.
+- [Informe técnico en Word](Informe_NeuroEcosistema.docx) con metodología, resultados, discusión y recomendaciones.
 - [BITACORA.md](BITACORA.md) registra las alternativas y criterios de diseño.
 - [SUSTENTACION.md](SUSTENTACION.md) contiene la secuencia de la demostración y preguntas de práctica.
 
@@ -50,3 +51,4 @@ La evaluación usa las semillas 1000–1009 para las siete políticas de cada es
 En la configuración amplia entrenada, la supervivencia media fue 35,0 %, 30,8 % y 17,5 % en abundancia, escasez y presión, respectivamente. La referencia de reglas terminó con 0 % en los tres. Al probar solo la presa neuronal, volvió a 0 %. Al probar solo el depredador neuronal, quedaron vivas entre 54,2 % y 57,5 % de las presas. Esto indica que la ventaja de supervivencia observada con ambas redes depende de qué política lleva el depredador.
 
 La evaluación repite condiciones del entorno con una inicialización por arquitectura. Los resultados no estiman la variabilidad entre inicializaciones del entrenamiento. Las barras de las gráficas muestran dispersión entre episodios, no intervalos de confianza.
+
