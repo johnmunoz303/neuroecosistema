@@ -12,7 +12,8 @@ from ecosistema import ESCENARIOS
 
 METRICAS = {
     "supervivencia_presas": ("Presas vivas al cierre (%)", 100),
-    "alimento": ("Plantas consumidas", 1),
+    "alimento": ("Plantas consumidas por episodio", 1),
+    "plantas_por_turno": ("Plantas consumidas por turno del episodio", 1),
     "capturas": ("Capturas por episodio", 1),
 }
 ETIQUETAS = {
@@ -40,6 +41,8 @@ def main():
     posiciones = np.arange(len(escenarios))
     ancho = 0.11
     for metrica, (titulo, escala) in METRICAS.items():
+        if metrica == "plantas_por_turno" and not any(key[2] == metrica for key in datos):
+            continue  # Los CSV anteriores registraban solo el consumo total.
         fig, eje = plt.subplots(figsize=(11, 5), layout="constrained")
         for i, (politica, etiqueta) in enumerate(ETIQUETAS.items()):
             filas = [datos[(escenario, politica, metrica)] for escenario in escenarios]

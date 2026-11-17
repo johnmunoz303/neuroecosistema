@@ -126,6 +126,7 @@ class Mundo:
             "pasos": self.paso,
             "supervivencia_presas": len(presas) / self.escenario.presas,
             "alimento": self.alimento,
+            "plantas_por_turno": self.alimento / self.paso if self.paso else None,
             "capturas": len(self.tiempos_captura),
             "energia_presa_por_inicial": sum(presas) / self.escenario.presas,
             "energia_depredador_por_inicial": sum(depredadores) / self.escenario.depredadores,

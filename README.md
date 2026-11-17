@@ -31,7 +31,7 @@ Para cambiar la semilla de la demo:
 - [resultados/configuracion.json](resultados/configuracion.json) registra semillas, escenarios, arquitecturas, pérdidas de entrenamiento y cambio de pesos por especie.
 - [resultados/episodios.csv](resultados/episodios.csv) contiene 210 episodios de evaluación, uno por combinación de escenario, política y semilla.
 - [resultados/resumen.csv](resultados/resumen.csv) contiene medias, desviaciones estándar muestrales y número de observaciones.
-- [resultados/graficas](resultados/graficas) contiene gráficas PNG y SVG de supervivencia, consumo y capturas.
+- [resultados/graficas](resultados/graficas) contiene gráficas PNG y SVG de supervivencia, consumo total, plantas por turno y capturas.
 - [Informe técnico en Word](Informe_NeuroEcosistema.docx) con metodología, resultados, discusión y recomendaciones.
 - [BITACORA.md](BITACORA.md) registra las alternativas y criterios de diseño.
 - [SUSTENTACION.md](SUSTENTACION.md) contiene la secuencia de la demostración y preguntas de práctica.
@@ -46,9 +46,13 @@ El profesor por reglas busca alimento y prioriza huir si detecta un depredador a
 
 La evaluación usa las semillas 1000–1009 para las siete políticas de cada escenario. Una semilla fija posiciones iniciales y la secuencia de celdas propuestas para reponer alimento. Cada trayectoria determina cuáles reposiciones se hacen efectivas. El tiempo medio hasta captura utiliza solo las capturas observadas y se deja vacío cuando no hubo ninguna. La energía final se divide entre el número inicial de agentes por especie, con cero para los que ya no están vivos.
 
+La tasa de plantas por turno divide el total consumido entre los pasos de cada episodio. El resumen promedia esas tasas dando el mismo peso a cada semilla. Es una tasa por episodio, no por presa viva.
+
 ## Lectura rápida de la evidencia
 
 En la configuración amplia entrenada, la supervivencia media fue 35,0 %, 30,8 % y 17,5 % en abundancia, escasez y presión, respectivamente. La referencia de reglas terminó con 0 % en los tres. Al probar solo la presa neuronal, volvió a 0 %. Al probar solo el depredador neuronal, quedaron vivas entre 54,2 % y 57,5 % de las presas. Esto indica que la ventaja de supervivencia observada con ambas redes depende de qué política lleva el depredador.
+
+Con depredadores de reglas en ambos grupos, las presas neuronales consumieron menos plantas por episodio, pero más por turno. En abundancia las tasas pasaron de 0,440 a 0,522, en escasez de 0,207 a 0,278 y en presión de 0,490 a 0,747. Ambos grupos terminaron con cero presas vivas. Los resultados de consumo total reflejan también que los episodios con presas neuronales duraron menos.
 
 La evaluación repite condiciones del entorno con una inicialización por arquitectura. Los resultados no estiman la variabilidad entre inicializaciones del entrenamiento. Las barras de las gráficas muestran dispersión entre episodios, no intervalos de confianza.
 
